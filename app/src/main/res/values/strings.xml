@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">GrowBox</string>
+
+    <string name="title_1">Skunk#1</string>
+
+    <string name="title_2">Haze</string>
+
+    <string name="title_3">FOX Ocean</string>
+
+    <string name="text_1">Hybrid strain created during the late 1970s.
+        Diverse genetics: Afghani, Acapulco Gold and Colombian Gold. </string>
+
+    <string name="text_2"> Haze is a sativa strain originally from Santa Cruz, California. Powerful and sturdy plant, with a lengthy flowering period.
+    </string>
+
+    <string name="text_3">100% Natural and Organic. FoxFarm Ocean Forest Soil is ready to use right out of the bag and provides
+        the ideal environment for young seedlings to become thriving plants. Lightweight and well-aerated,
+        it’s the perfect all-natural mix for container grown plants!</string>
+
+    <string name="kill">Kill Plant</string>
+    <string name="back">Main Menu</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="inventory">Inventory(Tools)</string>
+    <string name="colibri">Hummingbird ON/OFF</string>
+    <string name="shit">Balkan Rose</string>
+    <string name="blueb">BlueBerry</string>
+    <string name="boxtitle_1">Secret Jardín</string>
+    <string name="boxtitle">Grandma\'s Cupboard</string>
+    <string name="snap">Snapshot</string>
+    <string name="title_northernlight">Northern Light</string>
+    <string name="grapeape">Grape Ape</string>
+    <string name="cheese">Cheese</string>
+    <string name="amnesia">Amnesia</string>
+    <string name="lemon">Super Lemon Haze</string>
+    <string name="ak">AK 47</string>
+    <string name="widow">White Widow</string>
+    <string name="gelato">Gelato</string>
+    <string name="ghost">Ghost OG</string>
+    <string name="cdiesel">Cherry Diesel</string>
+    <string name="grind_it">Grind It</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dirt_soil">Dirt from Outside</string>
+    <string name="locked">Locked</string>
+    <string name="permfrst">Permafrost</string>
+    <string name="pinkmng">Pink Mango</string>
+    <string name="pineapple">Pineapple</string>
+    <string name="gws">Great White Shark</string>
+    <string name="afgan">Afghani</string>
+
+    <string name="a"><![CDATA[<h1>Electric Blue</h1> <p>Best for Vegetation and Stem Growth</p>]]></string>
+    <string name="b"><![CDATA[<h1>Pro Star</h1> <p>Powerful Full Spectrum Grow Light</p>]]></string>
+    <string name="d"><![CDATA[<h1>Bio Glow</h1> <p>Encourages Sprouting and Increases Late Sugar Production</p>]]></string>
+    <string name="c"><![CDATA[<h1>CFL Bloom</h1> <p>Cheap and Efficient, Mainly for Flowering phase</p>]]></string>
+    <string name="e"><![CDATA[<h1>Desk_Bulb</h1> <p>Originally for Tomatoes Mainly for Vegetative Phase</p>]]></string>
+    <string name="f"><![CDATA[<h1>Sodium 1000</h1> <p>Excellent for Blooming but May Halt Stem Growth</p>]]></string>
+    <string name="g"><![CDATA[<h1>Volatile HPS</h1> <p>Brutal Blooming Boost but the Heat Stuns Young Plants</p>]]></string>
+    <string name="h"><![CDATA[<h1>Metal Halide Bulb</h1> <p>Flowering Boost with Moderate Heat Stress</p>]]></string>
+    <string name="selectableConfirm">CONFIRM</string>
+    <string name="selectableStash">STASH</string>
+    <string name="soil01">Earthworm Mix</string>
+    <string name="soil02">Happy Flower</string>
+    <string name="coco">Coconut coir</string>
+    <string name="dryer_pakk_tag">Stash Your Jars Anytime</string>
+    <string name="reward">Reward</string>
+    <string name="combo_history">Combo History</string>
+    <string name="combos_found">Combos Found</string>
+    <string name="grow_shop">Grow Shop</string>
+    <string name="víz">H2O</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="drying_room">Drying Room</string>
+    <string name="skruffy_the_gardener">Skruffy the Gardener</string>
+    <string name="next">Next</string>
+    <string name="shop">Shop</string>
+    <string name="tools">Tools</string>
+    <string name="combos">Combos</string>
+    <string name="dryer">Dryer</string>
+    <string name="level_1">Level 1 0–499xp</string>
+    <string name="level_2">Level 2 500–1500xp</string>
+    <string name="level_3">Level 3 501–3999xp</string>
+    <string name="level_4">Level 4 4000–8000xp</string>
+    <string name="level_5">Level 5 8001–15000xp</string>
+    <string name="level_6">Level 6 +15000xp</string>
+    <string name="nrs_ratchet">Nurse Ratchet</string>
+    <string name="drbn">Durban Poison</string>
+
+
+</resources>

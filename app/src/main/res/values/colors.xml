@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#76FF03</color>
+    <color name="fa">#9f5810</color>
+    <color name="alu">#dce2e4</color>
+    <color name="fny">#e0f7fa</color>
+    <color name="fa2">#937d68</color>
+    <color name="nari">#f57c00</color>
+    <color name="kozepNari">#ffa000</color>
+    <color name="felsoNari">#ffc400</color>
+    <color name="progressKek">#29b6f6</color>
+</resources>

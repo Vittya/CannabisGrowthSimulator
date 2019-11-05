@@ -1,0 +1,39 @@
+<resources>
+
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:typeface">serif</item>
+
+
+
+    </style>
+
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!--buttons color-->
+        <item name="colorAccent">@android:color/holo_red_dark</item>
+        <!--title and message color-->
+        <item name="android:textColorPrimary">@android:color/holo_orange_dark</item>
+        <!--dialog background-->
+        <item name="android:windowBackground">@drawable/ic_comboeventhttr</item>
+    </style>
+
+
+
+    <color name="black">#000000</color>
+
+
+
+<style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:windowIsFloating">false</item>
+    <item name="android:windowBackground">@color/colorAccent</item>
+</style>
+</resources>

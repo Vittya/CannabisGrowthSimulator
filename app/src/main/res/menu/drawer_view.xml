@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group
+        android:checkableBehavior="single"
+        android:menuCategory="secondary">
+        <item
+            android:id="@+id/killit"
+            android:icon="@drawable/ic_sentiment_very_dissatisfied_black_24dp"
+            android:title="@string/kill" />
+        <item
+            android:id="@+id/back"
+            android:icon="@drawable/ic_arrow_back_black_24dp"
+            android:title="@string/back" />
+        <item
+            android:id="@+id/inventory"
+            android:icon="@drawable/ic_inventory_kis"
+            android:title="@string/inventory" />
+        <item
+            android:id="@+id/toShop"
+            android:icon="@drawable/ic_shop_kis"
+            android:title="@string/grow_shop" />
+        <item
+            android:id="@+id/todryer"
+            android:icon="@drawable/ic_drying_rack"
+            android:title="@string/drying_room" />
+        <item
+            android:id="@+id/colibri"
+            android:icon="@drawable/ic_hummingbird_silhouette_2"
+            android:title="@string/colibri" />
+        <item
+            android:id="@+id/tutorial"
+            android:icon="@drawable/ic_info_outline_black_24dp"
+            android:title="@string/tutorial" />
+
+
+    </group>
+</menu>
