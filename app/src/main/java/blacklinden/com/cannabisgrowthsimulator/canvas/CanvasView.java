@@ -6,12 +6,16 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
+import android.graphics.SurfaceTexture;
 import android.graphics.drawable.VectorDrawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.TextureView;
 import android.view.View;
 import android.widget.Toast;
 
@@ -36,17 +40,19 @@ import blacklinden.com.cannabisgrowthsimulator.nov.menttolt.M;
 
 
 
-public class CanvasView extends View  {
+public class CanvasView extends TextureView implements TextureView.SurfaceTextureListener, Runnable {
 
 
         private int ism;
-        private Bitmap mBitmap;
         Teknős t;
 
 
         float delta_theta=0f;
         private float metrix;
+        private Thread thread;
+        private volatile boolean mRunning = false;
 
+        private Surface mSurface;
 
         private ArrayList<Növény> AL;
 
@@ -55,16 +61,15 @@ public class CanvasView extends View  {
 
             AL = new ArrayList<>();
             t = new Teknős(c);
-            this.setLayerType(LAYER_TYPE_HARDWARE,null);
+            //this.setLayerType(LAYER_TYPE_HARDWARE,null);
+
+            thread = new Thread(this, "CANVAS_TAG");
+            setSurfaceTextureListener(this);
+            this.setOpaque(false);
 
         }
 
-        @Override
-        protected void onDraw(Canvas c){
 
-            super.onDraw(c);
-            T(c,AL);
-        }
 
         @Override
         protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -180,7 +185,7 @@ public class CanvasView extends View  {
 
         this.ism=ism;
         AL= yyy;
-       postInvalidateOnAnimation();
+        this.run();
 
     }
 
@@ -189,5 +194,41 @@ public class CanvasView extends View  {
         }
 
 
+    @Override
+    public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+        mSurface = new Surface(surface);
+        mRunning = true;
+        thread.start();
+    }
 
+    @Override
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
+
+    }
+
+    @Override
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+        mRunning = false;
+        try{
+            thread.join();
+        }
+        catch(InterruptedException e){
+            Log.e("CANVAS_TAG", "onSurfaceTextureDestroyed", e);
+        }
+        mSurface.release();
+        mSurface = null;
+        return true;
+    }
+
+    @Override
+    public void onSurfaceTextureUpdated(SurfaceTexture surface) {
+
+    }
+
+    @Override
+    public void run() {
+        Canvas canvas = mSurface.lockHardwareCanvas();
+        T(canvas,AL);
+        mSurface.unlockCanvasAndPost(canvas);
+    }
 }

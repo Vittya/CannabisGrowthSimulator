@@ -153,7 +153,7 @@ public class Teknős  {
 
 
         levél = new Paint();
-        levél.setAntiAlias(true);
+        //levél.setAntiAlias(true);
         levél.setStyle(Paint.Style.FILL_AND_STROKE);
         levél.setColor(Color.GREEN);
         szár = new Paint();

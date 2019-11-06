@@ -89,7 +89,7 @@ public final class Kender implements Serializable {
 
     public void update(int ism){
 
-        //if(cukor<100000)
+
             calvinKör();
         rostbanCukorTárolás();
         switch (fajta) {
@@ -102,13 +102,9 @@ public final class Kender implements Serializable {
             case 2:
             case 8:
             case 17:
-                if (ism == 380) flowering = true;
-                break;
             case 9:
             case 3:
             case 16:
-                if (ism == 380) flowering = true;
-                break;
             case 10:
             case 4:
             case 13:

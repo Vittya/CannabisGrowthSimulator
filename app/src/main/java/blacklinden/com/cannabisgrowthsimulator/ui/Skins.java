@@ -41,7 +41,7 @@ public class Skins extends Fragment {
         adapter = new SkinAdapter(root.getContext(), skinArrayList, () -> ((InventoryActivity)Objects.requireNonNull(getActivity())).playSound());
         recyclerView.setAdapter(adapter);
 
-        //observer interface helyett
+
         SkinVM skinVM = ViewModelProviders.of(this).get(SkinVM.class);
         skinVM.getAll().observe(this, this::createLiveData);
 

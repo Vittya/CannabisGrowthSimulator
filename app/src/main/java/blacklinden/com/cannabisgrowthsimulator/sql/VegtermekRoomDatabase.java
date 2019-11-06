@@ -93,7 +93,7 @@ abstract class VegtermekRoomDatabase extends RoomDatabase {
             mgDao.insert(new MagEntity("a",3));
             mgDao.insert(new MagEntity("b",3));
             mgDao.insert(new MagEntity("c",3));
-            scrDao.insert(new ScoreEntity("LEVEL 1",15));
+            scrDao.insert(new ScoreEntity("LEVEL 1",1500));
             mDao.insert(new Vegtermek("Skunk","good",15));
 
             return null;
