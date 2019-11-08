@@ -62,7 +62,7 @@
                 android:layout_gravity="center"
                 android:drawableTop="@drawable/ic_sugar"
                 android:elevation="5dp"
-                android:text="Sugar"
+                android:text="@string/sugar"
 
                 android:textAlignment="center"
                 android:textColor="@color/black" />
@@ -101,7 +101,7 @@
                 android:layout_gravity="center"
                 android:drawableTop="@drawable/ic_starch"
                 android:elevation="5dp"
-                android:text="Starch"
+                android:text="@string/starch"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
 
@@ -147,7 +147,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/uveg_ripple"
                 android:elevation="5dp"
-                android:text="N"
+                android:text="@string/n"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
 
@@ -171,7 +171,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/uveg_ripple"
                 android:elevation="5dp"
-                android:text="P"
+                android:text="@string/p"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
 
@@ -196,7 +196,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/uveg_ripple"
                 android:elevation="5dp"
-                android:text="K"
+                android:text="@string/k"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
 

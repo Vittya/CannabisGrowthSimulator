@@ -1,6 +1,8 @@
 package blacklinden.com.cannabisgrowthsimulator;
 
 import android.annotation.SuppressLint;
+
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.graphics.Color;
@@ -128,6 +130,7 @@ public class ShopActivity extends FragmentActivity {
             return NUM_PAGES;
         }
 
+        @NonNull
         @Override
         public Fragment getItem(int position) {
            return frags[position];

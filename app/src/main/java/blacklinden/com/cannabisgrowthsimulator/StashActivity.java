@@ -17,11 +17,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.dynamicanimation.animation.DynamicAnimation;
-import androidx.dynamicanimation.animation.FloatPropertyCompat;
+
 import androidx.dynamicanimation.animation.SpringAnimation;
 import androidx.dynamicanimation.animation.SpringForce;
 import androidx.fragment.app.FragmentActivity;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -43,6 +43,7 @@ import com.plattysoft.leonids.ParticleSystem;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Stack;
 import java.util.UUID;
 
@@ -427,16 +428,13 @@ public class StashActivity extends FragmentActivity implements View.OnTouchListe
 
             case DragEvent.ACTION_DRAG_ENTERED:
 
+            case DragEvent.ACTION_DRAG_EXITED:
+
                 v.invalidate();
                 return true;
 
             case DragEvent.ACTION_DRAG_LOCATION:
 
-                return true;
-
-            case DragEvent.ACTION_DRAG_EXITED:
-
-                v.invalidate();
                 return true;
 
             case DragEvent.ACTION_DROP:
@@ -621,7 +619,7 @@ public class StashActivity extends FragmentActivity implements View.OnTouchListe
 
             }
 
-    Handler handler = new Handler(Looper.myLooper());
+    Handler handler = new Handler(Objects.requireNonNull(Looper.myLooper()));
     Runnable oo = new Runnable() {
         @SuppressLint("SetTextI18n")
         @Override

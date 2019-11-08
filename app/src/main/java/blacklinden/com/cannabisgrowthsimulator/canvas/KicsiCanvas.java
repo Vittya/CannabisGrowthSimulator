@@ -93,30 +93,6 @@ public class KicsiCanvas extends View {
     }
 
 
-    public String getFajta(){
-        String fajta;
-        switch(termény.getFajta()){
-            case 1:
-                fajta="yugoszláv";
-                break;
-            case 2:
-                fajta="valami más";
-                break;
-            case 6:
-                fajta ="grape ape";
-                break;
-            default:
-                fajta="csumibogyó";
-        }
-
-        return fajta;
-    }
-
-
-    //ide majd valami számolás is kell
-    public int getSzarazsag(){
-        return termény.getNapok();
-    }
 
     public Termény getTermény(){
 

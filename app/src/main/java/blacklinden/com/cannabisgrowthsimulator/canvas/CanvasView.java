@@ -227,8 +227,10 @@ public class CanvasView extends TextureView implements TextureView.SurfaceTextur
 
     @Override
     public void run() {
-        Canvas canvas = mSurface.lockHardwareCanvas();
-        T(canvas,AL);
-        mSurface.unlockCanvasAndPost(canvas);
+        if (mSurface != null) {
+            Canvas canvas = mSurface.lockHardwareCanvas();
+            T(canvas, AL);
+            mSurface.unlockCanvasAndPost(canvas);
+        }
     }
 }

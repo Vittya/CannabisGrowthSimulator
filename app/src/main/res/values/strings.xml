@@ -83,6 +83,11 @@
     <string name="level_6">Level 6 +15000xp</string>
     <string name="nrs_ratchet">Nurse Ratchet</string>
     <string name="drbn">Durban Poison</string>
+    <string name="sugar">Sugar</string>
+    <string name="starch">Starch</string>
+    <string name="n">N</string>
+    <string name="p">P</string>
+    <string name="k">K</string>
 
 
 </resources>
