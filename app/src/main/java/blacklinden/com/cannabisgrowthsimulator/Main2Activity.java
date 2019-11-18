@@ -137,7 +137,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
     private ShimmerFrameLayout shimmer;
     private Button fab;
     private int currentXp,currentCoin;
-    private MediaPlayer gyjtHang,csirip,csirip2,coinHang;
+    private MediaPlayer csirip,csirip2,coinHang;
     private ImageButton start;
     private ImageView[] comboViews;
     private View bongpeg;
@@ -457,7 +457,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
         fiok = findViewById(R.id.fiokajto);
         final ImageButton lighterButton = findViewById(R.id.gyjt);
         Drawable lighter = lighterButton.getDrawable();
-        gyjtHang = MediaPlayer.create(this,R.raw.gyjt);
+
         bong = findViewById(R.id.bong);
         bongpeg = findViewById(R.id.bongpeg);
         bong.setListener(new Bong.BongListener() {
@@ -471,7 +471,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
             @Override
             public void inhale() {
                 lighterButton.setVisibility(View.VISIBLE);
-                gyjtHang.start();
+
                 if (lighter instanceof Animatable) {
                     ((Animatable) lighter).start();
                 }
@@ -1447,11 +1447,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
            coinHang.reset();
            coinHang.release();
        }
-       if(gyjtHang!=null) {
-           gyjtHang.stop();
-           gyjtHang.reset();
-           gyjtHang.release();
-       }
+
     }
 
     public void levelUps(View view) {

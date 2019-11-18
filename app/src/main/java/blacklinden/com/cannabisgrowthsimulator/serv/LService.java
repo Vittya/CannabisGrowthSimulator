@@ -276,8 +276,6 @@ public class LService extends Service {
                 showNotification("Your Plant is Thirsty!",true);
             else if(!üzenet.equals("In Progress")&&!üzenet.equals("Harvested")&&!üzenet.equals("Your Plant Died"))
                 showNotification("In Progress",!IS_SERVICE_RUNNING);
-            //if(Kender.getInstance().VV.getVÍZ_Mennyiség()==0&&ism>12) shakeItBaby();
-
 
             for(Növény x:al) {
 

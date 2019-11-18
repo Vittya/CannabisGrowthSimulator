@@ -492,8 +492,6 @@ public class StashActivity extends FragmentActivity implements View.OnTouchListe
                 return true;
 
             case DragEvent.ACTION_DRAG_ENDED:
-                //if(((CsuporCanvas) v).isEmpty()&&v.getId()!=R.id.kukaCnvs) ((CsuporCanvas) v).hilite();
-
                 ((CsuporCanvas)v).unliteAll();
 
                 return true;
@@ -511,22 +509,14 @@ public class StashActivity extends FragmentActivity implements View.OnTouchListe
         ClipData data = new ClipData(view.getTag().toString(), mimeTypes, item);
         switch (view.getId()) {
             case R.id.stashCanvas:
-                if(!((KicsiCanvas)view).isEmpty())
-                    view.startDragAndDrop(data, mShadow, null, 0);
-
-
-                break;
 
             case R.id.stashCanvas2:
 
-                if(!((KicsiCanvas)view).isEmpty())
-                    view.startDragAndDrop(data, mShadow, null, 0);
-
-                break;
-
             case R.id.stashCanvas3:
+
                 if(!((KicsiCanvas)view).isEmpty())
                     view.startDragAndDrop(data, mShadow, null, 0);
+
 
                 break;
 
