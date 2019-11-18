@@ -110,7 +110,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="2dp"
-                    android:text="COMBO"
+                    android:text="@string/combo"
                     android:textColor="@color/black" />
 
                 <LinearLayout
@@ -211,7 +211,7 @@
             android:backgroundTint="#333333"
             android:elevation="25dp"
             android:onClick="fiokajtoNyitas"
-            android:text="Stash"
+            android:text="@string/stash"
             android:textAlignment="center"
             android:textColor="#fff" />
 

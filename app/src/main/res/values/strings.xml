@@ -88,6 +88,8 @@
     <string name="n">N</string>
     <string name="p">P</string>
     <string name="k">K</string>
+    <string name="combo">COMBO</string>
+    <string name="stash">Stash</string>
 
 
 </resources>

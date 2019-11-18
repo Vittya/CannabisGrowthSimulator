@@ -137,7 +137,6 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
     private ShimmerFrameLayout shimmer;
     private Button fab;
     private int currentXp,currentCoin;
-    private View[] tutorialTmb;
     private MediaPlayer gyjtHang,csirip,csirip2,coinHang;
     private ImageButton start;
     private ImageView[] comboViews;
@@ -488,7 +487,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
                 new ParticleSystem(Main2Activity.this,50,R.drawable.fust_particle,5000L)
                         .setFadeOut(2500)
                         .setRotationSpeed(100)
-                        .setScaleRange(2,5)
+                        .setScaleRange(2,25 )
                         .setSpeedModuleAndAngleRange(0.01f,0.05f,10,80)
                         .emitWithGravity(kolibriTV,Gravity.CENTER_VERTICAL,counter,1000);
             }
@@ -726,7 +725,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
         super.onStart();
         Chartboost.onStart(this);
         if(Settings.getInstance().getTutorialSequence()) {
-            kolibriAnimator.setTutorial_e(tutorialTmb);
+            //kolibriAnimator.setTutorial_e(tutorialTmb);
             kolibriAnimator.run();
         }else {
             kolibriAnimator.setState("repdes", null);

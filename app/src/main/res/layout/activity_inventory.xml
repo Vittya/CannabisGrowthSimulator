@@ -9,45 +9,95 @@
     tools:context=".InventoryActivity"
     android:background="@drawable/ic_narancshatter">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tablayout"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:background="#814fff"
+        android:layout_marginBottom="8dp"
+        android:background="#7DD318"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageView
+            android:id="@+id/vp1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:onClick="vpScroll"
+            android:padding="5dp"
+            android:src="@drawable/ic_magok"
+            android:tag="0" />
+
+        <ImageView
+            android:id="@+id/vp2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:onClick="vpScroll"
+            android:padding="5dp"
+            android:src="@drawable/ic_tapszer"
+            android:tag="1" />
+
+        <ImageView
+            android:id="@+id/vp3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:onClick="vpScroll"
+            android:padding="5dp"
+            android:src="@drawable/ic_lampa"
+            android:tag="2" />
+
+        <ImageView
+            android:id="@+id/vp4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:onClick="vpScroll"
+            android:padding="5dp"
+            android:src="@drawable/ic_cserep"
+            android:tag="3" />
+
+        <ImageView
+            android:id="@+id/vp5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:onClick="vpScroll"
+            android:padding="5dp"
+            android:src="@drawable/ic_background"
+            android:tag="4" />
+    </LinearLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tablayout"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/httr_gomb"
         android:onClick="backBack"
         android:src="@drawable/ic_done_black_24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewPager"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
