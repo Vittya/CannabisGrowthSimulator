@@ -54,7 +54,6 @@ import blacklinden.com.cannabisgrowthsimulator.eszk.Ventil;
 import blacklinden.com.cannabisgrowthsimulator.pojo.Stash;
 import blacklinden.com.cannabisgrowthsimulator.pojo.Termény;
 import blacklinden.com.cannabisgrowthsimulator.sql.ScoreVM;
-import blacklinden.com.cannabisgrowthsimulator.ui.WalkThruFrag;
 import blacklinden.com.cannabisgrowthsimulator.ui.kolibri.Kolibri;
 import blacklinden.com.cannabisgrowthsimulator.ui.kolibri.Tutorial;
 
@@ -80,7 +79,7 @@ public class StashActivity extends FragmentActivity implements View.OnTouchListe
     private Kolibri kolibriAnimator;
     private int xp;
     private ScoreVM scoreVM;
-    private View fragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,14 +97,8 @@ public class StashActivity extends FragmentActivity implements View.OnTouchListe
         ventilObj = findViewById(R.id.ventil);
         ventilObj.setLayerType(View.LAYER_TYPE_HARDWARE,null);
 
-        fragment = findViewById(R.id.wtFrag);
-        fragment.setVisibility(View.GONE);
-        fragment.setElevation(500);
-        WalkThruFrag walkThruFrag = (WalkThruFrag) getFragmentManager().findFragmentById(R.id.wtFrag);
-        walkThruFrag.setImageForCarousel(new int[]{R.drawable.szarito11,R.drawable.szarito12,R.drawable.szarito21,R.drawable.szarito22});
-        walkThruFrag.setVisibilityListener(() -> {
-            fragment.setVisibility(View.GONE);
-        });
+
+
 
         TextView kolibriTV = findViewById(R.id.kolibriTv);
         kolibriTV.setLayerType(View.LAYER_TYPE_HARDWARE, null);
@@ -821,10 +814,5 @@ public class StashActivity extends FragmentActivity implements View.OnTouchListe
     }
 
 
-    public void openwtFrag(View view) {
-        if(fragment.getVisibility()==View.VISIBLE)
-            fragment.setVisibility(View.GONE);
-        else
-            fragment.setVisibility(View.VISIBLE);
-    }
+
 }

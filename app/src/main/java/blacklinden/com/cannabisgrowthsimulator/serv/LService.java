@@ -10,14 +10,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Binder;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.PowerManager;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -38,13 +34,12 @@ import blacklinden.com.cannabisgrowthsimulator.nov.F;
 import blacklinden.com.cannabisgrowthsimulator.nov.Gy;
 import blacklinden.com.cannabisgrowthsimulator.nov.H;
 import blacklinden.com.cannabisgrowthsimulator.nov.Kender;
-import blacklinden.com.cannabisgrowthsimulator.nov.L;
 import blacklinden.com.cannabisgrowthsimulator.nov.Növény;
 import blacklinden.com.cannabisgrowthsimulator.nov.menttolt.M;
 import blacklinden.com.cannabisgrowthsimulator.nov.menttolt.T;
 import blacklinden.com.cannabisgrowthsimulator.pojo.Termény;
 
-@SuppressWarnings("ALL")
+
 public class LService extends Service {
 
 
@@ -54,8 +49,6 @@ public class LService extends Service {
     public volatile ArrayList<Növény> al = new ArrayList<>();
     private IBinder binderem = new Binderem();
     public static volatile boolean IS_SERVICE_RUNNING = false;
-    private Notif notif;
-    private Notification notification;
     private String üzenet;
     public volatile boolean szüretelve=false;
     public volatile boolean halott;
@@ -100,29 +93,35 @@ public class LService extends Service {
         //lthread.setDaemon(true);
 
         PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M && Build.MANUFACTURER.equals("Huawei")) {
-            wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "LocationManagerService"); }
+        if (Build.MANUFACTURER.equals("Huawei")) {
+            if (powerManager != null) {
+                wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "myApp:LocationManagerService");
+            }
+        }
         else {
 
-            wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
-                    "MyApp::MyWakelockTag");
+            if (powerManager != null) {
+                wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+                        "MyApp::MyWakelockTag");
+            }
 
         }
-        wakeLock.acquire();
+        wakeLock.acquire(10*60*1000L /*10 minutes*/);
 
 
     }
 
     private void notificationForO(String uzenet,boolean autoCancel){
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            notif = new Notif(this);
+            Notif notif = new Notif(this);
 
             Notification.Builder nb = notif.
                     getAndroidChannelNotification("GROWBOX", uzenet);
             nb.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.cgs_logo02));
             nb.setSmallIcon(R.drawable.ic_indicasativakslg);
             nb.setAutoCancel(autoCancel);
-            if(!uzenet.equalsIgnoreCase("harvested")&&!uzenet.equalsIgnoreCase("your plant died")) {
+            if(!uzenet.equalsIgnoreCase("harvested")&&!uzenet.equalsIgnoreCase("your plant died")
+                    &&!uzenet.equalsIgnoreCase("finished")) {
 
                 Intent notificationIntent = new Intent(this, MainActivity.class);
                 PendingIntent pendingIntent = TaskStackBuilder.create(this)
@@ -144,10 +143,6 @@ public class LService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        //Mentés.getInstance(this);
-
-
-
 
         if (intent != null) {
             switch ((Objects.requireNonNull(intent.getAction()))) {
@@ -188,6 +183,7 @@ public class LService extends Service {
 
             Bitmap icon = BitmapFactory.decodeResource(getResources(),
                     R.drawable.cgs_logo02);
+            Notification notification;
             if(!uzenet.equalsIgnoreCase("harvested")&&!uzenet.equalsIgnoreCase("your plant died")&&!uzenet.equalsIgnoreCase("finished")) {
                 notification = new Notification.Builder(this)
                         .setContentTitle("GROWBOX")
@@ -235,7 +231,7 @@ public class LService extends Service {
     }
 
 
-    public Handler handler = new Handler(Looper.myLooper());
+    public Handler handler = new Handler(Objects.requireNonNull(Looper.myLooper()));
     public Runnable oo = new Runnable() {
         @Override
         public void run() {
@@ -257,13 +253,7 @@ public class LService extends Service {
 
     }
 
-    private void shakeItBaby() {
-        if (Build.VERSION.SDK_INT >= 26) {
-            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150, VibrationEffect.DEFAULT_AMPLITUDE));
-        } else {
-            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
-        }
-    }
+
 
 
     private void A() {
@@ -279,8 +269,6 @@ public class LService extends Service {
 
             for(Növény x:al) {
 
-
-                        //oldalhajtás
                 if(Objects.equals(x.n,"X")&&x.fejl()==20&&x.szint()==3
                         &&!Kender.getInstance().verem.f.empty()&&!Kender.getInstance().verem.üreseMT()){
 
@@ -308,7 +296,6 @@ public class LService extends Service {
 
                                 !Kender.getInstance().verem.üreseValami()) {
 
-                        //oldalhajtás-e
                     if(x.hossz()==1) {
                         a.add(Kender.getInstance().verem.m.pop());
                         a.add(Kender.getInstance().verem.f.pop().init(x.szint()));
@@ -494,8 +481,6 @@ public class LService extends Service {
         @Override
         public boolean onUnbind (Intent intent){
 
-
-
         return true;
         }
 
@@ -504,16 +489,10 @@ public class LService extends Service {
             super.onRebind(intent);
         }
 
-
-
         public class Binderem extends Binder {
             public LService getService() {
                 return LService.this;
             }
-        }
-
-        public int hullám () {
-            return (int) Kender.getInstance().VV.getVÍZ_Mennyiség();
         }
 
         public void harvest(){
@@ -521,12 +500,6 @@ public class LService extends Service {
         handler.post(oo);
 
         }
-
-        public void trim(){
-        handler.post(oo);
-            al.remove(L.class);
-        }
-
 
 
     }

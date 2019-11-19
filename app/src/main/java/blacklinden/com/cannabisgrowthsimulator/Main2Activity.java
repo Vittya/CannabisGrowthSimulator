@@ -94,7 +94,6 @@ import blacklinden.com.cannabisgrowthsimulator.sql.VegtermekViewModel;
 import blacklinden.com.cannabisgrowthsimulator.ui.CardPagerAdapter;
 import blacklinden.com.cannabisgrowthsimulator.ui.CardPagerAdapter2;
 import blacklinden.com.cannabisgrowthsimulator.ui.ShadowTransformer;
-import blacklinden.com.cannabisgrowthsimulator.ui.WalkThruFrag;
 import blacklinden.com.cannabisgrowthsimulator.ui.grind.Bong;
 import blacklinden.com.cannabisgrowthsimulator.ui.grind.ComboEvent;
 import blacklinden.com.cannabisgrowthsimulator.ui.grind.GrinderTartalomCV;
@@ -141,7 +140,6 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
     private ImageButton start;
     private ImageView[] comboViews;
     private View bongpeg;
-    private View fragment;
     private ImageButton comboMenuGomb;
 
 
@@ -155,11 +153,9 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
         Mentés.getInstance(this);
         Settings.getInstance();
 
-        // Get the consent status via the Chartboost.getPIDataUseConsent().getValue() method.
+
         Chartboost.getPIDataUseConsent().getValue();
 
-        // Set the consent status corresponding to the user's response using
-        // the Chartboost.setPIDataUseConsent(this, Chartboost.CBPIDataUseConsent.YES_BEHAVIORAL) method.
         Chartboost.setPIDataUseConsent(this, Chartboost.CBPIDataUseConsent.YES_BEHAVIORAL);
 
         Chartboost.startWithAppId(this, "5d17f91fb0f86c0b177698e8", "427051160c4400408650134364a2a4cb8c97165c");
@@ -203,19 +199,11 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
         fab = findViewById(R.id.fab);
 
 
-        fragment = findViewById(R.id.wtFrag);
-        fragment.setVisibility(View.GONE);
-        fragment.setElevation(500);
-        WalkThruFrag walkThruFrag = (WalkThruFrag) getFragmentManager().findFragmentById(R.id.wtFrag);
-        walkThruFrag.setImageForCarousel(new int[]{R.drawable.tut_11,R.drawable.tut_12,R.drawable.tut_13});
-        walkThruFrag.setVisibilityListener(() -> {
-            fragment.setVisibility(View.GONE);
-        });
 
         start = findViewById(R.id.start);
         kolibriTV = findViewById(R.id.kolibri);
         AnimatedVectorDrawable kolibri = (AnimatedVectorDrawable) kolibriTV.getCompoundDrawables()[3];//(AnimatedVectorDrawable)getResources().getDrawable(R.drawable.kolibriavd,null);//
-        //kolibriTV.setCompoundDrawables(null,null,null,kolibri);
+
         kolibri.start();
 
             kolibri.registerAnimationCallback(new Animatable2.AnimationCallback(){
@@ -464,8 +452,6 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
             @Override
             public void lightUp() {
 
-                //if(!(kolibriAnimator.getState() instanceof Smoke))
-                //kolibriAnimator.setState("smoke",bongpeg);
             }
 
             @Override
@@ -1393,10 +1379,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
         new AlertDialog.Builder(this,R.style.CustomDialogTheme)
                 .setTitle("Combo Event!")
                 .setMessage("Catch the bird, before the time runs out.")
-                .setPositiveButton("GO", (dialog, which) -> {
-                    kolibriAnimator.setState("fogocska",null);
-
-                })
+                .setPositiveButton("GO", (dialog, which) -> kolibriAnimator.setState("fogocska",null))
                 .setNegativeButton("NOT NOW", (dialog, which) -> {
                     findViewById(R.id.cardTypeBtn).setEnabled(true);
                     comboMenuGomb.setEnabled(true);

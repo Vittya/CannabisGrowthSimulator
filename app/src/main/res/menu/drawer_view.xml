@@ -27,10 +27,7 @@
             android:id="@+id/colibri"
             android:icon="@drawable/ic_hummingbird_silhouette_2"
             android:title="@string/colibri" />
-        <item
-            android:id="@+id/tutorial"
-            android:icon="@drawable/ic_info_outline_black_24dp"
-            android:title="@string/tutorial" />
+
 
 
     </group>

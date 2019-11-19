@@ -74,7 +74,6 @@ import blacklinden.com.cannabisgrowthsimulator.sql.MagVM;
 import blacklinden.com.cannabisgrowthsimulator.sql.NutriVM;
 import blacklinden.com.cannabisgrowthsimulator.sql.ScoreVM;
 import blacklinden.com.cannabisgrowthsimulator.sql.SoilVM;
-import blacklinden.com.cannabisgrowthsimulator.ui.WalkThruFrag;
 import blacklinden.com.cannabisgrowthsimulator.ui.kolibri.Kolibri;
 
 
@@ -113,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private int lightCounter, score;
     private AnimatedVectorDrawable ventilAvd,olloAvd;
     private boolean isKilled=false;
-    private View fragment;
+
 
 
     @Override
@@ -127,14 +126,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         tapeta = findViewById(R.id.httr_tapeta);
 
 
-        fragment = findViewById(R.id.wtFrag);
-        fragment.setVisibility(View.GONE);
-        fragment.setElevation(500);
-        WalkThruFrag walkThruFrag = (WalkThruFrag) getFragmentManager().findFragmentById(R.id.wtFrag);
-        walkThruFrag.setImageForCarousel(new int[]{R.drawable.tut_main,R.drawable.tut_main2});
-        walkThruFrag.setVisibilityListener(() -> {
-            fragment.setVisibility(View.GONE);
-        });
+
+
 
         switch (skin) {
             case "a":
@@ -296,13 +289,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                                 kolibriTV.setVisibility(View.GONE);
                                 Settings.getInstance().setKolibriOn(false);
                             }
-                            break;
-
-                        case R.id.tutorial:
-                            if(fragment.getVisibility()==View.VISIBLE)
-                            fragment.setVisibility(View.GONE);
-                            else
-                            fragment.setVisibility(View.VISIBLE);
                             break;
 
                         case R.id.todryer:
@@ -705,6 +691,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             nutriGoo.reset();
             nutriGoo.release();
         }
+
     }
 
     @Override
@@ -841,6 +828,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 if(clipData.equals("Plant the seed")) {
                     lService.startThread();
                     gong.start();
+                    gong.stop();
+                    gong.release();
                     kolibriAnimator.setState("repdes",null);
                 //itt volt magVm.update
                     MagVM magVM = ViewModelProviders.of(this).get(MagVM.class);

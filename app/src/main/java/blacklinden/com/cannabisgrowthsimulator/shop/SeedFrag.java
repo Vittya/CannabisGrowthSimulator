@@ -65,6 +65,9 @@ public class SeedFrag extends Fragment {
         permanentItems.add("t");
 
 
+
+
+
         scoreVM = ViewModelProviders.of(SeedFrag.this).get(ScoreVM.class);
 
     }

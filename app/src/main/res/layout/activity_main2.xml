@@ -225,7 +225,6 @@
         android:layout_gravity="top"
         android:layout_marginBottom="16dp"
         android:gravity="center"
-        android:onClick="levelUps"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -263,7 +262,7 @@
                 android:drawableTop="@drawable/ic_rank"
                 android:elevation="46dp"
                 android:gravity="center"
-                android:text="VVVVV V"
+                android:onClick="levelUps"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
@@ -576,17 +575,16 @@
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_constraintVertical_bias="1.0" />
 
-    <View
-        android:id="@+id/bongpeg"
-        android:layout_width="10dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/bong"
-        app:layout_constraintEnd_toEndOf="@+id/bong"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/bong"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="1.0" />
+        <View
+            android:id="@+id/bongpeg"
+            android:layout_width="16dp"
+            android:layout_height="2dp"
+            app:layout_constraintBottom_toTopOf="@+id/bong"
+            app:layout_constraintEnd_toEndOf="@+id/bong"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/bong"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/gyjt"
@@ -651,21 +649,6 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.0" />
 
-    <fragment
-        android:id="@+id/wtFrag"
-        android:name="blacklinden.com.cannabisgrowthsimulator.ui.WalkThruFrag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:elevation="90dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 

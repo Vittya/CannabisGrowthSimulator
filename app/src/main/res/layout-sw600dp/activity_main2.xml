@@ -261,7 +261,7 @@
                 android:drawableTop="@drawable/ic_rank"
                 android:elevation="46dp"
                 android:padding="5dp"
-                android:text="VVVVVVVVV"
+                android:onClick="levelUps"
                 android:textAlignment="center"
                 android:textColor="#EEFFDB"
                 android:textSize="40sp" />
@@ -651,18 +651,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.0" />
 
-    <fragment
-        android:id="@+id/wtFrag"
-        android:name="blacklinden.com.cannabisgrowthsimulator.ui.WalkThruFrag"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="90dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/walkthru_frag" />
+
 
 
 
