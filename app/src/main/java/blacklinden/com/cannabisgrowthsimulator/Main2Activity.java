@@ -760,27 +760,28 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
 
     private void insert(){
         String rawVgktrmk = Mentés.getInstance().getString(Mentés.Key.VGTRMK_LST,"o");
+        if(!rawVgktrmk.equalsIgnoreCase("o")) {
+            Type vList = new TypeToken<ArrayList<Stash>>() {
+            }.getType();
+            List<Stash> vgtrmkList = gson.fromJson(rawVgktrmk, vList);
+                if (!vgtrmkList.isEmpty()) {
 
-        Type vList = new TypeToken<ArrayList<Stash>>() {
-        }.getType();
-        List<Stash> vgtrmkList = gson.fromJson(rawVgktrmk, vList);
-        if(!vgtrmkList.isEmpty()) {
+                 for (Stash s : vgtrmkList) {
 
-            for (Stash s : vgtrmkList) {
+                    viewModel.insert(new Vegtermek(s.getFajta(), s.getMinőség(), s.getMennyi()));
 
-                viewModel.insert(new Vegtermek(s.getFajta(),s.getMinőség(),s.getMennyi()));
+                    Toast.makeText(
+                    getApplicationContext(),
+                    s.getFajta() + " Added",
+                    Toast.LENGTH_LONG).show();
+                }
 
-                Toast.makeText(
-                        getApplicationContext(),
-                        s.getFajta()+" Added",
-                        Toast.LENGTH_LONG).show();
+                    List<Stash> trmny = new ArrayList<>();
+                    String trm = Mentés.getInstance().gsonra(trmny);
+                    Mentés.getInstance().put(Mentés.Key.VGTRMK_LST, trm);
+
+                }
             }
-
-            List<Stash> trmny = new ArrayList<>();
-            String trm = Mentés.getInstance().gsonra(trmny);
-            Mentés.getInstance().put(Mentés.Key.VGTRMK_LST,trm);
-
-        }
     }
 
     @SuppressLint("SetTextI18n")
