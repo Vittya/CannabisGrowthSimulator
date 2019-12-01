@@ -262,6 +262,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
                 new ParticleSystem(Main2Activity.this, 10, R.drawable.kenderii, 6000)
                         .setFadeOut(5000)
                         .setRotationSpeed(50)
+                        .setScaleRange(2,10)
                         .setSpeedModuleAndAngleRange(0.1f,0.5f,0,365)
                         .oneShot(logo,50);
 
@@ -473,7 +474,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
                 new ParticleSystem(Main2Activity.this,50,R.drawable.fust_particle,5000L)
                         .setFadeOut(2500)
                         .setRotationSpeed(100)
-                        .setScaleRange(2,25 )
+                        .setScaleRange(2,10 )
                         .setSpeedModuleAndAngleRange(0.01f,0.05f,10,80)
                         .emitWithGravity(kolibriTV,Gravity.CENTER_VERTICAL,counter,1000);
             }

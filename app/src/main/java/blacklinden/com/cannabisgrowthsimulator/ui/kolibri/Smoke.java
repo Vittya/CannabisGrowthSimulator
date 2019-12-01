@@ -54,7 +54,7 @@ public class Smoke implements KolibriState {
             int y0;
             if (Build.VERSION.SDK_INT <28) {
                 x0 = helyv[0] - kolibri.getKolibri().getWidth();
-                y0 = helyv[1];//-kolibri.getKolibri().getHeight()/2;
+                y0 = helyv[1]-kolibri.getKolibri().getHeight()/2;
             }else{
                 x0 = helyv[0] - kolibri.getKolibri().getWidth();
                 y0 = helyv[1]-kolibri.getKolibri().getHeight()/2;
