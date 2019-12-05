@@ -3,6 +3,7 @@ package blacklinden.com.cannabisgrowthsimulator.ui.recy;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.CheckedTextView;
+import android.widget.FrameLayout;
 
 import blacklinden.com.cannabisgrowthsimulator.R;
 import blacklinden.com.cannabisgrowthsimulator.pojo.SelectableStashItem;
@@ -12,6 +13,7 @@ public class SelectableViewHolder  extends RecyclerView.ViewHolder {
         static final int MULTI_SELECTION = 2;
         static final int SINGLE_SELECTION = 1;
         CheckedTextView textView;
+        FrameLayout fl;
         SelectableStashItem stashItem;
         OnItemSelectedListener itemSelectedListener;
 
@@ -20,6 +22,7 @@ public class SelectableViewHolder  extends RecyclerView.ViewHolder {
             super(view);
             itemSelectedListener = listener;
             textView = view.findViewById(R.id.checked_text_item);
+            fl = view.findViewById(R.id.fl);
             textView.setOnClickListener(view1 -> {
 
 

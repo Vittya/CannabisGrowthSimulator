@@ -67,6 +67,7 @@ public class CanvasView extends TextureView implements TextureView.SurfaceTextur
             setSurfaceTextureListener(this);
             this.setOpaque(false);
 
+
         }
 
 
@@ -185,7 +186,7 @@ public class CanvasView extends TextureView implements TextureView.SurfaceTextur
 
         this.ism=ism;
         AL= yyy;
-        this.run();
+        this.post(thread);
 
     }
 
@@ -222,7 +223,8 @@ public class CanvasView extends TextureView implements TextureView.SurfaceTextur
 
     @Override
     public void onSurfaceTextureUpdated(SurfaceTexture surface) {
-
+       mSurface.release();
+       mSurface = new Surface(surface);
     }
 
     @Override

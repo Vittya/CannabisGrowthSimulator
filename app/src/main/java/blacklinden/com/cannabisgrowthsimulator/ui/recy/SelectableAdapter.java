@@ -56,7 +56,7 @@ public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int po
         SelectableStashItem selectableItem = mValues.get(position);
         String name = selectableItem.getFajta();
         holder.textView.setText(qualitytext(selectableItem.getMinőség()));
-        setIcon(holder.textView,name);
+        setIcon(holder.fl,name);
         if (isMultiSelectionEnabled) {
         TypedValue value = new TypedValue();
         holder.textView.getContext().getTheme().resolveAttribute(android.R.attr.listChoiceIndicatorMultiple, value, true);
@@ -132,64 +132,64 @@ public void onItemSelected(SelectableStashItem item) {
 private void setIcon(View v,String icon){
         switch (icon) {
                 case "Skunk":
-                        v.setBackgroundResource(R.drawable.ic_skunk_n1);
+                    v.setBackgroundResource(R.drawable.ic_skunk_n1);
                         break;
                 case "Afghan":
-                        v.setBackgroundResource(R.drawable.ic_afghan);
+                    v.setBackgroundResource(R.drawable.ic_afghan);
                         break;
                 case "Balkan Rose":
                         v.setBackgroundResource(R.drawable.ic_balkan_rose);
                         break;
                 case "BlueBerry":
-                        v.setBackgroundResource(R.drawable.ic_blueberry_icon);
+                    v.setBackgroundResource(R.drawable.ic_blueberry_icon);
                         break;
                 case "Northern Light":
-                        v.setBackgroundResource(R.drawable.ic_northern_light_icon);
+                    v.setBackgroundResource(R.drawable.ic_northern_light_icon);
                         break;
                 case "Grape Ape":
-                        v.setBackgroundResource(R.drawable.ic_grape_ape_icon);
+                    v.setBackgroundResource(R.drawable.ic_grape_ape_icon);
                         break;
                 case "AK47":
-                        v.setBackgroundResource(R.drawable.ic_ak47);
+                    v.setBackgroundResource(R.drawable.ic_ak47);
                         break;
                 case "Cheese":
-                        v.setBackgroundResource(R.drawable.ic_cheese_icon);
+                    v.setBackgroundResource(R.drawable.ic_cheese_icon);
                         break;
                 case "Amnesia":
-                        v.setBackgroundResource(R.drawable.ic_amnesia_icon);
+                    v.setBackgroundResource(R.drawable.ic_amnesia_icon);
                         break;
                 case "S.Lemon Haze":
-                        v.setBackgroundResource(R.drawable.ic_super_lemon_haze);
+                    v.setBackgroundResource(R.drawable.ic_super_lemon_haze);
                         break;
                 case "White Widow":
-                        v.setBackgroundResource(R.drawable.ic_white_widow_icon);
+                    v.setBackgroundResource(R.drawable.ic_white_widow_icon);
                         break;
                 case "Gelato":
-                        v.setBackgroundResource(R.drawable.ic_gelato_icon);
+                    v.setBackgroundResource(R.drawable.ic_gelato_icon);
                         break;
                 case "Ghost OG":
-                        v.setBackgroundResource(R.drawable.ic_ghost_og_icon);
+                    v.setBackgroundResource(R.drawable.ic_ghost_og_icon);
                         break;
                 case "Cherry Diesel":
-                        v.setBackgroundResource(R.drawable.ic_cherry_diesel_icon);
+                    v.setBackgroundResource(R.drawable.ic_cherry_diesel_icon);
                         break;
                 case "Permafrost":
-                        v.setBackgroundResource(R.drawable.ic_permafrost_icon);
+                    v.setBackgroundResource(R.drawable.ic_permafrost_icon);
                         break;
                 case "Pink Mango":
-                        v.setBackgroundResource(R.drawable.ic_pink_mango_icon);
+                    v.setBackgroundResource(R.drawable.ic_pink_mango_icon);
                         break;
                 case "Pineapple":
-                        v.setBackgroundResource(R.drawable.ic_pineapple_express);
+                    v.setBackgroundResource(R.drawable.ic_pineapple_express);
                         break;
                 case "G.White Shark":
-                        v.setBackgroundResource(R.drawable.ic_gws_icon);
+                    v.setBackgroundResource(R.drawable.ic_gws_icon);
                         break;
                 case "Nurse R.":
-                        v.setBackgroundResource(R.drawable.ic_nrs_icon);
+                    v.setBackgroundResource(R.drawable.ic_nrs_icon);
                         break;
                 case "Durban":
-                        v.setBackgroundResource(R.drawable.ic_durban_poison_icon);
+                    v.setBackgroundResource(R.drawable.ic_durban_poison_icon);
                         break;
         }
 }

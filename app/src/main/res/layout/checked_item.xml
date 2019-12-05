@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/checked_text_item"
-    android:layout_width="100dp"
-    android:layout_height="115dp"
-    android:gravity="center_vertical"
-    android:textStyle="bold"
-    android:textSize="14sp"
-    android:textColor="@color/kozepNari"
-    android:checkMark="?android:attr/listChoiceIndicatorSingle"
-    android:padding="8dp"
-    android:shadowRadius="10"
-    android:drawableBottom="@drawable/ic_pakk"
-    android:checkMarkTint="@color/colorAccent"
-    android:paddingBottom="8dp" />
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_afghan">
 
+    <CheckedTextView
+        android:id="@+id/checked_text_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_pakk"
+        android:checkMark="?android:attr/listChoiceIndicatorSingle"
+        android:checkMarkTint="@color/colorAccent"
+        android:gravity="center"
+        android:padding="8dp"
+        android:paddingBottom="8dp"
+        android:shadowRadius="10"
+        android:textColor="@color/kozepNari"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+</FrameLayout>
