@@ -56,7 +56,7 @@ public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int po
         SelectableStashItem selectableItem = mValues.get(position);
         String name = selectableItem.getFajta();
         holder.textView.setText(qualitytext(selectableItem.getMinőség()));
-        setIcon(holder.fl,name);
+        setIcon(holder.textView,name);
         if (isMultiSelectionEnabled) {
         TypedValue value = new TypedValue();
         holder.textView.getContext().getTheme().resolveAttribute(android.R.attr.listChoiceIndicatorMultiple, value, true);
@@ -109,7 +109,7 @@ public int getItemViewType(int position) {
         }
 
 @Override
-public void onItemSelected(SelectableStashItem item) {
+public void onItemSelected(SelectableStashItem item, View view) {
         if (!isMultiSelectionEnabled) {
 
         for (SelectableStashItem selectableItem : mValues) {
@@ -126,7 +126,7 @@ public void onItemSelected(SelectableStashItem item) {
         notifyDataSetChanged();
         }
 
-        listener.onItemSelected(item);
+        listener.onItemSelected(item,view);
         }
 
 private void setIcon(View v,String icon){

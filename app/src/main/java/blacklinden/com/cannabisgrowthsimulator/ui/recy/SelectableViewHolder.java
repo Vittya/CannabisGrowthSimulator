@@ -31,7 +31,7 @@ public class SelectableViewHolder  extends RecyclerView.ViewHolder {
                 } else {
                     setChecked(true);
                 }
-                itemSelectedListener.onItemSelected(stashItem);
+                itemSelectedListener.onItemSelected(stashItem, view);
 
             });
         }
@@ -44,7 +44,7 @@ public class SelectableViewHolder  extends RecyclerView.ViewHolder {
 
         public interface OnItemSelectedListener {
 
-            void onItemSelected(SelectableStashItem stash);
+            void onItemSelected(SelectableStashItem stash, View view);
         }
 
     }

@@ -30,12 +30,13 @@ import android.os.Handler;
 
 import com.google.android.material.snackbar.Snackbar;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AlertDialog;
 
 import android.os.Bundle;
 import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.GridLayoutManager;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -68,6 +69,7 @@ import com.plattysoft.leonids.ParticleSystem;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 import blacklinden.com.cannabisgrowthsimulator.eszk.Mentés;
@@ -141,6 +143,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
     private ImageView[] comboViews;
     private View bongpeg;
     private ImageButton comboMenuGomb;
+
 
 
 
@@ -269,7 +272,9 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
             }
         });
 
-        GridLayoutManager layoutManager = new GridLayoutManager(this,1,GridLayoutManager.HORIZONTAL,false);
+       //GridLayoutManager layoutManager = new GridLayoutManager(this,1,GridLayoutManager.HORIZONTAL,false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+
         recyclerView = findViewById(R.id.selection_list);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -1029,10 +1034,10 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
 
 
     @Override
-    public void onItemSelected(SelectableStashItem selectableItem) {
+    public void onItemSelected(SelectableStashItem selectableItem, View view) {
 
         List<Stash> selectedItems = adapter.getSelectedItems();
-        Snackbar.make(recyclerView,"Selected: "+selectableItem.getFajta()+" "+String.format(java.util.Locale.US,"%.2f",selectableItem.getMennyi())+"Gr."+
+        Snackbar.make(recyclerView,"Selected: "+selectableItem.getFajta()+" "+String.format(Locale.US,"%.2f",selectableItem.getMennyi())+"Gr."+
                 ", Quality: "+selectableItem.getMinőség(),Snackbar.LENGTH_LONG).show();
         fab.setText(R.string.selectableConfirm);
         villog(fab,Color.BLACK,Color.RED,1);
@@ -1053,6 +1058,10 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
 
 
         }
+
+
+
+
 
     }
 
