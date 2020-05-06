@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recre"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.recre.RecreFragment">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="hatter2.json"
+        app:lottie_loop="true" />
+
+    <ImageView
+        android:id="@+id/nixi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/nixiecso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_asztalalja"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_asztal1"
+        app:layout_constraintBottom_toTopOf="@+id/fab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/bongtartopolc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_bongtartopolc"
+        android:elevation="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout2"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout2"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <blacklinden.com.cannabisgrowthsimulator.ui.grind.Bong
+        android:id="@+id/bong"
+        android:layout_width="50dp"
+        android:layout_height="88dp"
+
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="32dp"
+        android:elevation="40dp"
+        android:src="@drawable/ic_bong"
+        android:tag="Smoke Weed!"
+        app:layout_constraintBottom_toBottomOf="@+id/bongtartopolc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <View
+        android:id="@+id/bongpeg"
+        android:layout_width="16dp"
+        android:layout_height="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/bong"
+        app:layout_constraintEnd_toEndOf="@+id/bong"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/bong"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/gyjt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="false"
+        android:elevation="62dp"
+        android:src="@drawable/ic_gyjt"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/bong"
+        app:layout_constraintEnd_toEndOf="@+id/bong"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/bong"
+        app:layout_constraintTop_toTopOf="@+id/bong"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gyjt"
+        app:layout_constraintTop_toBottomOf="@+id/nixi"
+        app:layout_constraintVertical_bias="0.75" />
+
+
+    <FrameLayout
+        android:id="@+id/frameGrinder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="@drawable/nari_kor"
+        android:elevation="10dp"
+        android:layerType="none"
+
+        android:padding="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView">
+
+
+        <ImageView
+            android:id="@+id/grinder"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:elevation="25dp"
+            android:layerType="hardware"
+            android:src="@drawable/ic_grinder" />
+
+        <blacklinden.com.cannabisgrowthsimulator.ui.grind.GrinderTartalomCV
+            android:id="@+id/grinderTartalom"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:elevation="26dp"
+            android:layerType="hardware" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/csilivili"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="30dp"
+            android:layerType="hardware"
+            app:shimmer_auto_start="false"
+            app:shimmer_base_alpha="1"
+            app:shimmer_highlight_alpha="0.5"
+            app:shimmer_highlight_color="@color/colorAccent">
+
+            <ImageView
+                android:id="@+id/grinder2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layerType="hardware"
+
+                android:src="@drawable/ic_grinder_teteje" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </FrameLayout>
+
+    <blacklinden.com.cannabisgrowthsimulator.ui.recre.smoke.RollTable
+        android:id="@+id/rolltable"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="@+id/tip"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/cp"
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/ic_bobitabla"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/selection_list"
+
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
+            android:paddingBottom="15dp"
+            android:paddingTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="9dp" />
+
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="@string/stash"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"
+        android:background="@drawable/ic_craftgomb"
+        android:elevation="25dp"
+        android:drawableStart="@drawable/ic_craftgombikon"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/rolltable"
+        app:layout_constraintTop_toBottomOf="@+id/tip"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/ic_csigav"
+        android:src="@drawable/ic_csigavikon"
+        app:layout_constraintBottom_toBottomOf="@+id/cp"
+        app:layout_constraintEnd_toStartOf="@+id/dohany"
+        app:layout_constraintStart_toEndOf="@+id/cp"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/cp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/ic_papirv"
+        android:src="@drawable/ic_papirvikon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dohany"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
+
+    <ImageButton
+        android:id="@+id/dohany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/ic_dohanyv"
+        android:src="@drawable/ic_dohanyvikon"
+        app:layout_constraintBottom_toBottomOf="@+id/cp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tip"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <blacklinden.com.cannabisgrowthsimulator.ui.recre.smoke.PreviewBackup
+        android:id="@+id/previewImgBakcup"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow"
+        app:layout_constraintEnd_toEndOf="@+id/tableRow"
+        app:layout_constraintStart_toStartOf="@+id/tableRow"
+        app:layout_constraintTop_toTopOf="@+id/imageView10" />
+
+    <TableRow
+        android:id="@+id/tableRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8">
+
+        <ImageView
+            android:id="@+id/undo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/ic_navigate_before_black_24dp" />
+
+        <ImageView
+            android:id="@+id/redo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/ic_navigate_next_black_24dp" />
+    </TableRow>
+
+    <blacklinden.com.cannabisgrowthsimulator.ui.recre.smoke.Spangli
+        android:id="@+id/spangli"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/tip"
+        app:layout_constraintEnd_toStartOf="@+id/dohany"
+        app:layout_constraintStart_toEndOf="@+id/cp"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
+
+    <TextView
+        android:id="@+id/kolibri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:drawableBottom="@drawable/kolibriavd"
+        android:elevation="63dp"
+        android:tag="Watch a Video\nFor Reward"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

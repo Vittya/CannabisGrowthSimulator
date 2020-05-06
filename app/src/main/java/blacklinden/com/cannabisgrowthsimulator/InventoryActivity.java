@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.media.MediaPlayer;
-import com.google.android.material.tabs.TabLayout;
 import androidx.fragment.app.FragmentActivity;
 import android.os.Bundle;
 import androidx.viewpager.widget.ViewPager;
@@ -33,7 +32,7 @@ private Intent intent;
                 findViewById(R.id.vp2),
                 findViewById(R.id.vp3),
                 findViewById(R.id.vp4),
-                findViewById(R.id.vp5)
+
         };
         vpTmb[0].setColorFilter(Color.RED, PorterDuff.Mode.XOR);
 
@@ -47,7 +46,7 @@ private Intent intent;
             public void onPageSelected(int position) {
                 for(int i=0;i<vpTmb.length;i++) {
                     if (i!=position) vpTmb[i].clearColorFilter();
-                    else vpTmb[position].setColorFilter(Color.BLUE,PorterDuff.Mode.XOR);;
+                    else vpTmb[position].setColorFilter(Color.RED,PorterDuff.Mode.XOR);
                 }
             }
 
@@ -63,9 +62,10 @@ private Intent intent;
        if(isTaskRoot()) {
            startActivity(intent);
            finish();
-       }else
-       super.onBackPressed();
-
+       }else {
+           super.onBackPressed();
+           finish();
+       }
     }
 
     public void backBack(View v){

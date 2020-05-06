@@ -14,7 +14,13 @@ import android.view.View;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class GrinderTartalomCV extends View {
+import blacklinden.com.cannabisgrowthsimulator.ui.recre.drag.DragElement;
+
+public class GrinderTartalomCV extends View implements DragElement {
+
+    public WeakReference<Bitmap> getWeakRef() {
+        return bitmapWeakReference;
+    }
 
     WeakReference<Bitmap> bitmapWeakReference;
     private float[] points;
@@ -53,6 +59,14 @@ public class GrinderTartalomCV extends View {
 
     }
 
+    @Override
+    public void hiLite(boolean isLit) {
+        if(isLit)
+        this.setBackgroundColor(Color.GREEN);
+        else
+        this.setBackgroundColor(Color.TRANSPARENT);
+    }
+
     public interface GrinderListener{
 
         void onEmpty();
@@ -77,11 +91,11 @@ public class GrinderTartalomCV extends View {
         //listener=null;
     }
 
-    public void fillUp(Bitmap bitmap,int[] db,int stashID,String fajta, String mnsg, float thc, float cbd){
+    public void fillUp(Bitmap bitmap,int mennyi,int db,int stashID,String fajta, String mnsg, float thc, float cbd){
         isEmpty=false;
         bitmapWeakReference = new WeakReference<>(bitmap);
-        this.db=db[1];
-        levonando=db[0];
+        this.db=db;
+        levonando=mennyi-db;
         shaderPaint.setShader(new BitmapShader(bitmap,Shader.TileMode.REPEAT,Shader.TileMode.REPEAT));
         this.stashID=stashID;
         this.fajta=fajta;
@@ -110,7 +124,7 @@ public class GrinderTartalomCV extends View {
     private void drawNuggets(Canvas c){
 
 
-        for(int i=0;i<25;i++) {
+        for(int i=0;i<(db*5);i++) {
             int tempW=getWidth()/10;
             int x = ThreadLocalRandom.current().nextInt(tempW, getWidth()-tempW);
             int y = ThreadLocalRandom.current().nextInt(tempW, getHeight()-tempW);

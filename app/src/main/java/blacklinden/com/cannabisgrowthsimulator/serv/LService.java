@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Objects;
 
 
+import blacklinden.com.cannabisgrowthsimulator.Main2Activity;
 import blacklinden.com.cannabisgrowthsimulator.MainActivity;
 import blacklinden.com.cannabisgrowthsimulator.R;
 import blacklinden.com.cannabisgrowthsimulator.eszk.Mentés;
@@ -56,7 +57,7 @@ public class LService extends Service {
     private C bC,jC;
     private ArrayList<Növény> a;
     private PowerManager.WakeLock wakeLock;
-
+    private boolean isUnBound;
 
 
     public LService() {
@@ -106,7 +107,7 @@ public class LService extends Service {
             }
 
         }
-        wakeLock.acquire(10*60*1000L /*10 minutes*/);
+        wakeLock.acquire(10*60*1000L );
 
 
     }
@@ -120,17 +121,28 @@ public class LService extends Service {
             nb.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.cgs_logo02));
             nb.setSmallIcon(R.drawable.ic_indicasativakslg);
             nb.setAutoCancel(autoCancel);
+            nb.setOngoing(false);
+            Intent deleteIntent = new Intent(this, MainActivity.class);
+            PendingIntent deletePendingIntent = TaskStackBuilder.create(this)
+                    .addNextIntentWithParentStack(deleteIntent)
+                    .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+            Intent notificationIntent = new Intent(this, MainActivity.class);
+            PendingIntent pendingIntent = TaskStackBuilder.create(this)
+                    .addNextIntentWithParentStack(notificationIntent)
+                    .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            nb.setDeleteIntent(deletePendingIntent);
+
             if(!uzenet.equalsIgnoreCase("harvested")&&!uzenet.equalsIgnoreCase("your plant died")
                     &&!uzenet.equalsIgnoreCase("finished")) {
 
-                Intent notificationIntent = new Intent(this, MainActivity.class);
-                PendingIntent pendingIntent = TaskStackBuilder.create(this)
-                        .addNextIntentWithParentStack(notificationIntent)
-                        .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
 
                 nb.setContentIntent(pendingIntent);
-            }
-            nb.setOnlyAlertOnce(!uzenet.equalsIgnoreCase("Your plant is thirsty!")||uzenet.equalsIgnoreCase("your plant died"));
+            }else nb.setOnlyAlertOnce(true).setOngoing(false).setContentIntent(pendingIntent);
+
+
+            //nb.setOnlyAlertOnce(uzenet.equalsIgnoreCase("your plant died"));
 
             notif.getManager().notify(101, nb.build());
 
@@ -168,10 +180,10 @@ public class LService extends Service {
 
     }
 
-    private void showNotification(String uzenet,boolean autoCancel) {
+    private void showNotification(String uzenet,boolean threadGoing) {
 
         üzenet=uzenet;
-
+        boolean autoCancel = threadGoing||üzenet.equalsIgnoreCase("your plant died");
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O) {
 
             Intent notificationIntent = new Intent(this, MainActivity.class);
@@ -187,7 +199,7 @@ public class LService extends Service {
             if(!uzenet.equalsIgnoreCase("harvested")&&!uzenet.equalsIgnoreCase("your plant died")&&!uzenet.equalsIgnoreCase("finished")) {
                 notification = new Notification.Builder(this)
                         .setContentTitle("GROWBOX")
-                        .setOnlyAlertOnce(!uzenet.equalsIgnoreCase("Your plant is thirsty!")||uzenet.equalsIgnoreCase("your plant died"))
+                        .setOnlyAlertOnce(false)
                         .setTicker("Grow Operation")
                         .setContentText(uzenet)
                         .setSmallIcon(R.drawable.ic_indicasativakslg)
@@ -200,13 +212,14 @@ public class LService extends Service {
             }else{
                 notification = new Notification.Builder(this)
                         .setContentTitle("GROWBOX")
-                        .setOnlyAlertOnce(!uzenet.equalsIgnoreCase("Your plant is thirsty!"))
+                        .setOnlyAlertOnce(true)
                         .setTicker("Grow Operation")
                         .setContentText(uzenet)
                         .setSmallIcon(R.drawable.ic_indicasativakslg)
                         .setLargeIcon(icon)
                         .setAutoCancel(autoCancel)
-                        .setOngoing(true)
+                        .setOngoing(false)
+                        .setContentIntent(pendingIntent)
                         .setPriority(Notification.PRIORITY_MAX)
                         .build();
             }
@@ -240,15 +253,16 @@ public class LService extends Service {
                 A();
                 handler.postDelayed(oo, 625);
             }catch (Exception e){
+                handler.removeCallbacks(this);
                halott=true;
                vége();
+
 
             }
         }
     };
 
     private void ism() {
-        System.out.println("ISM " + ism);
         ism++;
 
     }
@@ -380,22 +394,29 @@ public class LService extends Service {
         }
 
         public void vége(){
-            handler.removeCallbacks(oo);
 
             halott=Kender.getInstance().halott_e;
 
-
             if(halott){
-                showNotification("Your Plant Died",false);
+                showNotification("Your Plant Died",true);
                 //notificationForO("Your Plant Died");
+                stopForeground(true);
+                 stopIt=true;
+
+            stopSelf();
 
             }else if(!stopIt){
-                showNotification("Finished",false);
+                showNotification("Finished",true);
                 //notificationForO("Harvested");
+                stopForeground(true);
+
+                 stopIt=true;
+
+           stopSelf();
             }
-            stopIt=true;
-            stopForeground(false);
-            stopSelf();
+
+            handler.removeCallbacks(oo);
+
 
         }
 
@@ -480,7 +501,7 @@ public class LService extends Service {
 
         @Override
         public boolean onUnbind (Intent intent){
-
+        isUnBound=true;
         return true;
         }
 

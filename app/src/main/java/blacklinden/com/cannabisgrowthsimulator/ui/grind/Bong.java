@@ -4,11 +4,12 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
 import android.graphics.Shader;
 import android.os.Handler;
 import androidx.annotation.Nullable;
-import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -16,9 +17,10 @@ import android.view.View;
 
 
 import blacklinden.com.cannabisgrowthsimulator.R;
-import blacklinden.com.cannabisgrowthsimulator.eszk.Teknős;
+import blacklinden.com.cannabisgrowthsimulator.eszk.Teknos;
+import blacklinden.com.cannabisgrowthsimulator.ui.recre.drag.DragElement;
 
-public class Bong extends View implements Runnable  {
+public class Bong extends View implements Runnable, DragElement {
 
     private Paint paint;
     private VectorDrawableCompat kd;
@@ -46,7 +48,7 @@ public class Bong extends View implements Runnable  {
 
         listener = null;
         paint = new Paint();
-        Bitmap bitmap = Teknős.flowerStrain(getContext(),"weed1");
+        Bitmap bitmap = Teknos.flowerStrain(getContext(),"weed1");
         paint.setShader(new BitmapShader(bitmap,Shader.TileMode.CLAMP,Shader.TileMode.REPEAT));
         kd = VectorDrawableCompat.create(getResources(),R.drawable.ic_bong,null);
         top=1000;
@@ -114,6 +116,14 @@ public class Bong extends View implements Runnable  {
         int q = XPutil.q(mnsg);
         float t = XPutil.thc(thc);
         return (int)(f*q+t);
+    }
+
+    @Override
+    public void hiLite(boolean isLit) {
+        if(isLit)
+            kd.setColorFilter(Color.CYAN, PorterDuff.Mode.MULTIPLY);
+        else
+            kd.setColorFilter(null);
     }
 
     public interface BongListener{
@@ -207,7 +217,7 @@ class XPutil {
             case "G.White Shark":
             return 30;
 
-            default:return 1;
+            default:return 3;
         }
 
     }

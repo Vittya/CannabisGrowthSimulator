@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    app:cardUseCompatPadding="true"
-    android:background="#ccff90">
+    android:background="#ccff90"
+    app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
 
@@ -19,19 +18,18 @@
             android:id="@+id/xGomb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:onClick="closeMag"
             android:src="@drawable/ic_cancel_black_24dp"
             app:layout_constraintBottom_toTopOf="@+id/titleImage"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/titleImage"
-            android:layout_width="100dp"
-            android:layout_height="200dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="8dp"
@@ -40,33 +38,33 @@
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/linear"
-            app:layout_constraintHorizontal_bias="0.17"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_emptycombo" />
 
         <TextView
             android:id="@+id/titleTextView"
             style="@style/TextAppearance.AppCompat.Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:gravity="center_horizontal"
-            android:textAlignment="gravity"
+            android:gravity="start"
+            android:text="placeholder long sente"
+            android:textAlignment="textStart"
             app:layout_constraintBottom_toTopOf="@+id/titleImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.23"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/linear"
+            app:layout_constraintStart_toStartOf="@+id/titleImage"
+            app:layout_constraintTop_toBottomOf="@+id/xGomb"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <TableLayout
+        <LinearLayout
             android:id="@+id/linear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
@@ -74,85 +72,60 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton"
             app:layout_constraintTop_toTopOf="parent">
 
 
-            <TableRow
+            <TextView
+                android:id="@+id/thc"
+                style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:drawableStart="@drawable/ic_thc"
+                android:text="000000" />
 
-                <TextView
-                    android:id="@+id/thc"
-                    style="@style/TextAppearance.AppCompat.Body1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:drawableStart="@drawable/ic_thc" />
-            </TableRow>
-
-            <TableRow
+            <TextView
+                android:id="@+id/yield"
+                style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:drawableStart="@drawable/ic_gramm"
+                android:text="000000" />
 
-                <TextView
-                    android:id="@+id/yield"
-                    style="@style/TextAppearance.AppCompat.Body1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:drawableStart="@drawable/ic_gramm" />
-            </TableRow>
-
-            <TableRow
+            <TextView
+                android:id="@+id/strainType"
+                style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:drawableStart="@drawable/ic_indicasativa"
+                android:text="000 00000" />
 
-                <TextView
-                    android:id="@+id/strainType"
-                    style="@style/TextAppearance.AppCompat.Body1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:drawableStart="@drawable/ic_indicasativa" />
-            </TableRow>
-
-            <TableRow
+            <TextView
+                android:id="@+id/reward"
+                style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:drawableStart="@drawable/ic_coin" />
 
-                <TextView
-                    android:id="@+id/reward"
-                    style="@style/TextAppearance.AppCompat.Body1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:drawableStart="@drawable/ic_coin" />
-            </TableRow>
-
-            <TableRow
+            <TextView
+                android:id="@+id/flower"
+                style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content" />
 
-                <TextView
-                    android:id="@+id/flower"
-                    style="@style/TextAppearance.AppCompat.Body1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                   />
-            </TableRow>
-        </TableLayout>
+        </LinearLayout>
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="27dp"
+            android:layout_width="wrap_content"
             android:layout_height="28dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/httr_gomb"
             android:onClick="setStrain"
@@ -160,18 +133,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleImage"
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/seedsLeft"
-            android:text="ii"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:text="ii"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageButton"
             app:layout_constraintHorizontal_bias="0.09"

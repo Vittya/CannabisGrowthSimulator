@@ -36,13 +36,16 @@ public class Lights extends Fragment {
 
         lampArrayList = new ArrayList<>();
         lampArrayList.add(new Elem("Desk Bulb","CFL",60,4700,3000,
-                R.drawable.cflkek,R.drawable.feher_csova,Objects.requireNonNull(getContext()).getDrawable(R.drawable.ic_ggg)
+                Objects.requireNonNull(getContext()).getResources().getIdentifier("cflkek","drawable",getContext().getPackageName())
+                ,
+                Objects.requireNonNull(getContext()).getResources().getIdentifier("feher_csova","drawable",getContext().getPackageName()),
+               Objects.requireNonNull(getContext()).getDrawable(R.drawable.ic_ggg)
         ));
         adapter = new ElemAdapter(root.getContext(), lampArrayList, () -> ((InventoryActivity)Objects.requireNonNull(getActivity())).playSound());
         recyclerView.setAdapter(adapter);
 
         LampaVM lampaVM = ViewModelProviders.of(this).get(LampaVM.class);
-        lampaVM.getAll().observe(this, this::createLiveData);
+        lampaVM.getAll().observe(getViewLifecycleOwner(), this::createLiveData);
 
         return root;
     }
@@ -53,7 +56,9 @@ public class Lights extends Fragment {
             switch (l.getFajta()){
                 case "a":
                     lampArrayList.add(new Elem("Electric Blue", "LED", 250, 4500, 13500,
-                            R.drawable.blue_led,R.drawable.feher_csova, Objects.requireNonNull(getContext()).getDrawable(R.drawable.ic_jjj)
+                            //Teszteld!!!!
+                            Objects.requireNonNull(getContext()).getResources().getIdentifier("blue_led","drawable",getContext().getPackageName())
+                            ,R.drawable.feher_csova, Objects.requireNonNull(getContext()).getDrawable(R.drawable.ic_jjj)
                     ));
                     break;
 

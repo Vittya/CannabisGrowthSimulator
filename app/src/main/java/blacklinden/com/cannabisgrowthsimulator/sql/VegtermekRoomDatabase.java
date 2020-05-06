@@ -90,11 +90,13 @@ abstract class VegtermekRoomDatabase extends RoomDatabase {
 
             nDao.insert(new NutriEntity("BioGrow",15));
             soilDao.insert(new SoilEntity("dirt",30));
-            mgDao.insert(new MagEntity("a",3));
+            mgDao.insert(new MagEntity("f",600));
             mgDao.insert(new MagEntity("b",3));
             mgDao.insert(new MagEntity("c",3));
             scrDao.insert(new ScoreEntity("LEVEL 1",1500));
-            mDao.insert(new Vegtermek("Skunk","good",15));
+            mDao.insert(new Vegtermek("Skunk","good",600));
+            mDao.insert(new Vegtermek("Ghost OG","good",600));
+            mDao.insert(new Vegtermek("Pink Mango","good",600));
 
             return null;
         }

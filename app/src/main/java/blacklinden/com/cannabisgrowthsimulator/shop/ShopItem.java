@@ -1,12 +1,11 @@
 package blacklinden.com.cannabisgrowthsimulator.shop;
 
-import androidx.annotation.Nullable;
 
 public class ShopItem {
     private String name,srName;
     private int price;
     private int imageCode;
-    private @Nullable boolean locked = false;
+    private boolean locked = false;
 
     public ShopItem(String srName,String name,int price,int imageCode){
         this.srName=srName;

@@ -12,12 +12,12 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import blacklinden.com.cannabisgrowthsimulator.R;
-import blacklinden.com.cannabisgrowthsimulator.eszk.Teknős;
+import blacklinden.com.cannabisgrowthsimulator.eszk.Teknos;
 import blacklinden.com.cannabisgrowthsimulator.pojo.Termény;
 
 public class CsuporCanvas extends View {
 
-    private Teknős t;
+    private Teknos t;
     private boolean empty;
     private Paint üveg,kupak,hilite;
     private Termény termény;
@@ -39,7 +39,7 @@ public class CsuporCanvas extends View {
     private void innit(){
         empty=true;
         nyitva=false;
-        t = new Teknős();
+        t = new Teknos();
         hilite = new Paint();
         hilite.setColor(Color.MAGENTA);
         üveg = new Paint();

@@ -1,14 +1,13 @@
 package blacklinden.com.cannabisgrowthsimulator.serv;
 
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.job.JobParameters;
-import android.app.job.JobService;
-import android.content.Intent;
-import android.widget.Toast;
+import android.content.Context;
 
+
+
+import androidx.annotation.NonNull;
+import androidx.work.Worker;
+import androidx.work.WorkerParameters;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -27,21 +26,23 @@ import blacklinden.com.cannabisgrowthsimulator.StashActivity;
 import blacklinden.com.cannabisgrowthsimulator.eszk.Mentés;
 import blacklinden.com.cannabisgrowthsimulator.pojo.Termény;
 
-public class StashService extends JobService {
+public class StashService extends Worker {
     private Random random;
     private String t="";
     private int t_napok;
     private Gson gson;
 
 
-    public StashService() {
+    public StashService(Context context, WorkerParameters parameters) {
+        super(context,parameters);
         random = new Random();
         gson =  new GsonBuilder().create();
+        Mentés.getInstance(context);
     }
 
-    @Override
-    public boolean onStartJob(JobParameters jobParameters) {
-        Mentés.getInstance(this);
+
+    private boolean onStartJob() {
+
         String erlRaw = Mentés.getInstance().getString(Mentés.Key.ERllT_LST,"0");
         String trmRaw = Mentés.getInstance().getString(Mentés.Key.TRMS_LST,"0");
 
@@ -91,20 +92,17 @@ public class StashService extends JobService {
 
         }
 
-        if(trmList.size()==0&&erlList.size()==0)
-            jobFinished(jobParameters,false);
+        return(trmList.size()==0&&erlList.size()==0);
 
-
-
-
-        return true;
     }
 
+
+
+
+    @NonNull
     @Override
-    public boolean onStopJob(JobParameters jobParameters) {
-        return true;
+    public Result doWork() {
+        onStartJob();
+        return  Result.success();
     }
-
-
-
 }

@@ -42,7 +42,7 @@ public class Accessories extends Fragment {
         adapter = new PotAdapter(root.getContext(), arrayList, () -> ((InventoryActivity)Objects.requireNonNull(getActivity())).playSound());
         recyclerView.setAdapter(adapter);
         AccVM accVM = ViewModelProviders.of(this).get(AccVM.class);
-        accVM.getAll().observe(this,this::createLiveData);
+        accVM.getAll().observe(getViewLifecycleOwner(),this::createLiveData);
 
 
 

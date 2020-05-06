@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<TableRow
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    >
+
+    <ImageView
+    android:layout_gravity="start"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:src="@drawable/ic_gws_icon"
+    android:id="@+id/weedPic"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:id="@+id/weedTxt"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        />
+
+
+</TableRow>
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/set_ammount"/>
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/seek_weed_amount"
+        android:thumb="@drawable/ic_ak47"
+        android:padding="5dp"
+        android:thumbOffset="5dp"
+        android:progress="0"
+        />
+    </TableRow>
+    </LinearLayout>

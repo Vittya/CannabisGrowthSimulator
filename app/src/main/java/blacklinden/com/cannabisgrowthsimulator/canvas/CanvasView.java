@@ -1,42 +1,19 @@
 package blacklinden.com.cannabisgrowthsimulator.canvas;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PixelFormat;
 import android.graphics.SurfaceTexture;
-import android.graphics.drawable.VectorDrawable;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Surface;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.TextureView;
-import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
-import blacklinden.com.cannabisgrowthsimulator.R;
-import blacklinden.com.cannabisgrowthsimulator.eszk.Teknős;
-import blacklinden.com.cannabisgrowthsimulator.nov.A;
-import blacklinden.com.cannabisgrowthsimulator.nov.X;
-import blacklinden.com.cannabisgrowthsimulator.nov.Av;
-import blacklinden.com.cannabisgrowthsimulator.nov.F;
-import blacklinden.com.cannabisgrowthsimulator.nov.Kender;
-import blacklinden.com.cannabisgrowthsimulator.nov.L;
+import blacklinden.com.cannabisgrowthsimulator.eszk.Teknos;
+
 import blacklinden.com.cannabisgrowthsimulator.nov.Növény;
-import blacklinden.com.cannabisgrowthsimulator.nov.V;
-import blacklinden.com.cannabisgrowthsimulator.nov.menttolt.T;
-import blacklinden.com.cannabisgrowthsimulator.nov.menttolt.M;
+
 
 
 
@@ -44,7 +21,7 @@ public class CanvasView extends TextureView implements TextureView.SurfaceTextur
 
 
         private int ism;
-        Teknős t;
+        Teknos t;
 
 
         float delta_theta=0f;
@@ -60,8 +37,8 @@ public class CanvasView extends TextureView implements TextureView.SurfaceTextur
             super(c, attrs);
 
             AL = new ArrayList<>();
-            t = new Teknős(c);
-            //this.setLayerType(LAYER_TYPE_HARDWARE,null);
+            t = new Teknos(c);
+
 
             thread = new Thread(this, "CANVAS_TAG");
             setSurfaceTextureListener(this);
@@ -190,8 +167,8 @@ public class CanvasView extends TextureView implements TextureView.SurfaceTextur
 
     }
 
-        public void metrix(float m){
-            metrix=m;
+        public void metrix(float metrix){
+            this.metrix=metrix;
         }
 
 

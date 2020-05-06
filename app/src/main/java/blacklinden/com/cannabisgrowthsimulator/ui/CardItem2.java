@@ -6,14 +6,14 @@ public class CardItem2 {
     private int pic;
     private int mennyi;
 
-    public CardItem2(int mennyi,int titleRes,String type,int pic){
+    CardItem2(int mennyi,int titleRes,String type,int pic){
         this.mennyi=mennyi;
         this.titleRes=titleRes;
         this.type=type;
         this.pic=pic;
     }
 
-    public int getTitleRes() {
+    int getTitleRes() {
         return titleRes;
     }
 
@@ -21,7 +21,7 @@ public class CardItem2 {
         return type;
     }
 
-    public int getPic() {
+    int getPic() {
         return pic;
     }
 

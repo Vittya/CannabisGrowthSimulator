@@ -89,7 +89,14 @@
     <string name="p">P</string>
     <string name="k">K</string>
     <string name="combo">COMBO</string>
-    <string name="stash">Stash</string>
+    <string name="stash">Craft</string>
+    <string name="seeds">SEEDS</string>
+    <string name="harvest">HARVEST</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="paper_confirm">Use</string>
+    <string name="ocb_papir">Rice Paper \nSimple, yet elegant</string>
+    <string name="dohany_sima">Fine Cut Tobbacco</string>
+    <string name="set_ammount">Grams</string>
 
 
 </resources>

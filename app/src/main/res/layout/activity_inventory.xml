@@ -21,6 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
+
         <ImageView
             android:id="@+id/vp1"
             android:layout_width="50dp"
@@ -28,7 +29,7 @@
             android:layout_gravity="center"
             android:onClick="vpScroll"
             android:padding="5dp"
-            android:src="@drawable/ic_magok"
+            android:src="@drawable/ic_lampa"
             android:tag="0" />
 
         <ImageView
@@ -48,7 +49,7 @@
             android:layout_gravity="center"
             android:onClick="vpScroll"
             android:padding="5dp"
-            android:src="@drawable/ic_lampa"
+            android:src="@drawable/ic_cserep"
             android:tag="2" />
 
         <ImageView
@@ -58,18 +59,8 @@
             android:layout_gravity="center"
             android:onClick="vpScroll"
             android:padding="5dp"
-            android:src="@drawable/ic_cserep"
-            android:tag="3" />
-
-        <ImageView
-            android:id="@+id/vp5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:onClick="vpScroll"
-            android:padding="5dp"
             android:src="@drawable/ic_background"
-            android:tag="4" />
+            android:tag="3" />
     </LinearLayout>
 
     <androidx.viewpager.widget.ViewPager

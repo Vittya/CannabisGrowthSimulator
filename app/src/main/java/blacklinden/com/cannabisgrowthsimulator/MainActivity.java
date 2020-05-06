@@ -21,8 +21,7 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.IBinder;
 import com.google.android.material.navigation.NavigationView;
-import androidx.vectordrawable.graphics.drawable.Animatable2Compat;
-import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
+
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AlertDialog;
@@ -393,7 +392,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         bindService(service, kapcsolat, Context.BIND_AUTO_CREATE);
 
 
-        clearCanvas();
+        runThermoView();
 
         nutriMennyi = new HashMap<>();
 
@@ -499,7 +498,10 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         setIndicator();
         soilIndicator.setText(Kender.getInstance().CC.föld.soilName);
         fátyol.setImageDrawable(getDrawable(Kender.getInstance().FF.setDrawCode(1)));
-        clearCanvas();
+        runThermoView();
+        if(lService!=null)
+            run();
+
 
 
         kanna.setImageDrawable(getDrawable(Kender.getInstance().VV.setDrawCode()));
@@ -580,7 +582,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         }
     }
 
-    private void clearCanvas() {
+    private void runThermoView() {
         thermoView.oo.run();
     }
 
@@ -729,6 +731,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             run();
             if (LService.IS_SERVICE_RUNNING)
                 seed.setVisibility(View.GONE);
+
+
         }
     };
 
@@ -765,12 +769,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         switch (view.getId()) {
 
             case R.id.daseed:
-                view.startDragAndDrop(data, mShadow, null, 0);
-                break;
 
             case R.id.locsol:
-                view.startDragAndDrop(data, mShadow, null, 0);
-                break;
 
             case R.id.tap1:
                 view.startDragAndDrop(data, mShadow, null, 0);
@@ -990,6 +990,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         }else
 
         kolibriHandler.postDelayed(this,1000);
+
     }
 
     private String causeofdeathHelper(String cause){

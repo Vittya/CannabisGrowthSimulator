@@ -15,13 +15,13 @@ import android.view.View;
 import java.lang.ref.WeakReference;
 
 import blacklinden.com.cannabisgrowthsimulator.R;
-import blacklinden.com.cannabisgrowthsimulator.eszk.Teknős;
+import blacklinden.com.cannabisgrowthsimulator.eszk.Teknos;
 
 import blacklinden.com.cannabisgrowthsimulator.pojo.Termény;
 
 public class KicsiCanvas extends View {
 
-    private Teknős t;
+    private Teknos t;
     private Termény termény;
     private Paint paint,outline;
     private boolean empty = true;
@@ -33,7 +33,7 @@ public class KicsiCanvas extends View {
 
     public KicsiCanvas(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        t = new Teknős();
+        t = new Teknos();
         setup();
     }
 

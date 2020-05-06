@@ -136,7 +136,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_info_outline_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_navigate_next_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -147,9 +147,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="autoMirrored" value="true" />
-                            <entry key="outputName" value="ic_nrs_icon" />
-                            <entry key="sourceFile" value="X:\Piktures\TheGreatCB\icons\14_DARAB_FINAL_MERET_IKON\nurse ratchet.svg" />
+                            <entry key="outputName" value="ic_craftgombikon" />
+                            <entry key="sourceFile" value="X:\Piktures\TheGreatCB\uj_generation\craftgombikon.svg" />
                           </map>
                         </option>
                       </PersistentState>

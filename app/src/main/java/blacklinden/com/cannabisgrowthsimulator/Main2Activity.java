@@ -38,6 +38,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.work.WorkInfo;
+import androidx.work.WorkManager;
 
 import android.view.Gravity;
 import android.view.View;
@@ -55,7 +57,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,7 +73,7 @@ import java.util.List;
 
 
 import blacklinden.com.cannabisgrowthsimulator.eszk.Mentés;
-import blacklinden.com.cannabisgrowthsimulator.eszk.Teknős;
+import blacklinden.com.cannabisgrowthsimulator.eszk.Teknos;
 import blacklinden.com.cannabisgrowthsimulator.nov.Kender;
 import blacklinden.com.cannabisgrowthsimulator.pojo.ComboEntity;
 
@@ -115,7 +117,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
 
 
     Intent service;
-    private Button magv;
+    private ImageButton magv;
     private ViewPager mViewPager;
     private CardPagerAdapter mCardAdapter;
     private CardPagerAdapter2 mCardAdapter2;
@@ -132,7 +134,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
     private ImageView grinder,logo;
     private FrameLayout frameGrinder;
     private Bong bong;
-    private RelativeLayout fiok;
+    private LinearLayout fiok;
     private ShimmerFrameLayout shimmer;
     private Button fab;
     private int currentXp,currentCoin;
@@ -312,7 +314,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
                 findViewById(R.id.shop).setEnabled(true);
                 start.setEnabled(true);
                 findViewById(R.id.box).setEnabled(true);
-                findViewById(R.id.magv).setEnabled(true);
+                magv.setEnabled(true);
                 findViewById(R.id.video).setEnabled(true);
                 fab.setEnabled(true);
             }
@@ -490,7 +492,8 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
                         .oneShot(xp,i);
 
                 bong.animate().rotation(0).start();
-                grinder.setEnabled(true);
+               //TODO grinder.setEnabled(true);
+                fab.setEnabled(true);
             if(comboEvent.getSmokeCounter()<=1) {
                 switch (fajta) {
                     case "Skunk":
@@ -617,7 +620,14 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
             }
         });
 
-       MyApp.addStaticListener(this::updateStaticTV);
+       //MyApp.addStaticListener(this::updateStaticTV);
+        WorkManager.getInstance(this).getWorkInfoByIdLiveData(MyApp.getId())
+                .observe(this, workInfo -> {
+                    if (workInfo != null && workInfo.getState() == WorkInfo.State.SUCCEEDED) {
+                        updateStaticTV();
+                    }
+                });
+
 
         adapter = new SelectableAdapter(this,false);
         recyclerView.setAdapter(adapter);
@@ -741,19 +751,18 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
         kolibriAnimator.dispose();
     }
 
-    private int[] updateStashConsumption(int mennyi){
-        int[] levont = new int[2];
+    private int updateStashConsumption(int mennyi){
+        int levont;
        if(mennyi<6f) {
            //viewModelnek
            //levont[0] = 0;
            //grinderFillupnak
-           levont[1] = mennyi;
+           levont = mennyi;
        }
        else {
            //viewModelnek
-           levont[0] = mennyi - 6;
-           //grinderFillupnak
-           levont[1] = 6;
+           levont = mennyi - 6;
+
        }
            return levont;
     }
@@ -1010,13 +1019,15 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
         if (!pakkokNyitva) {
             recyclerView.setVisibility(View.VISIBLE);
             pakkokNyitva = true;
-            float d = fiok.getWidth();
-            fiok.animate().translationX(-d).setDuration(500).setInterpolator(new BounceInterpolator()).start();
+            float d = fiok.getHeight()-(fab.getHeight()+fab.getPaddingTop()*2);
+            fiok.animate().translationY(d).setDuration(500).setInterpolator(new BounceInterpolator()).start();
+            grinder.setEnabled(false);
         } else {
             recyclerView.setVisibility(View.GONE);
             pakkokNyitva=false;
             fab.setText(R.string.selectableStash);
-            fiok.animate().translationX(0).setDuration(500).setInterpolator(new BounceInterpolator()).start();
+            fiok.animate().translationY(0).setDuration(500).setInterpolator(new BounceInterpolator()).start();
+            grinder.setEnabled(true);
         }
 
         logoGrinderOpener(pakkokNyitva);
@@ -1042,14 +1053,14 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
         }else if(!bong.isFilled()&&grinderTartalomCV.getIsEmpty()){
 
             findViewById(R.id.frameGrinder).setVisibility(View.VISIBLE);
-            grinderTartalomCV.fillUp(Teknős.flowerStrain(
-                    this, selectableItem.getFajta()), updateStashConsumption((int)selectableItem.getMennyi()),
-                    selectableItem.getId(),
-                    selectableItem.getFajta(),
-                    selectableItem.getMinőség(),
-                    selectableItem.getThc(),
-                    selectableItem.getCbd()
-            );
+//            grinderTartalomCV.fillUp(Teknos.flowerStrain(
+//                    this, selectableItem.getFajta()), updateStashConsumption((int)selectableItem.getMennyi()),
+//                    selectableItem.getId(),
+//                    selectableItem.getFajta(),
+//                    selectableItem.getMinőség(),
+//                    selectableItem.getThc(),
+//                    selectableItem.getCbd()
+//            );
 
 
         }
@@ -1217,7 +1228,7 @@ public class Main2Activity extends FragmentActivity implements View.OnClickListe
                         bong.fillUp(grinderTartalomCV.getFajta(),grinderTartalomCV.getThc(),grinderTartalomCV.getCbd(),grinderTartalomCV.getMnsg());
                         grinderTartalomCV.dispose();
                         grinderTartalomCV.invalidate();
-                        fab.setEnabled(true);
+
                         }
 
                 }).start();

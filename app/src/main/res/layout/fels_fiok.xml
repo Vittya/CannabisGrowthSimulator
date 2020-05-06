@@ -21,7 +21,7 @@
             android:background="@drawable/korv_plc"/>
 
     </androidx.cardview.widget.CardView>
-    <blacklinden.com.cannabisgrowthsimulator.eszk.NaptárView
+    <blacklinden.com.cannabisgrowthsimulator.eszk.NaptarView
         android:id="@+id/nap_tar"
         android:layout_width="80dp"
         android:layout_height="80dp"
